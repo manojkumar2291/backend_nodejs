@@ -32,6 +32,6 @@ app.listen(PORT,()=>{
     console.log(`server started listening at ${PORT}`);
 });
 
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send("<h1> welcome to vendor<h1>");
 });
