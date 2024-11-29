@@ -2,6 +2,7 @@ const Product=require('../models/Products');
 const multer=require('multer');
 const Firm=require('../models/Firm');
 const firmcontroller = require('./firmcontroller');
+const path=require('path');
 
 const storage=multer.diskStorage({
 destination:function(req,file,cb){

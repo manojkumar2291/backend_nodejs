@@ -33,6 +33,7 @@ const venderRegister=async(req,res)=>{
 }
 const venderlogin =async(req,res)=>{
     const { email,password}=req.body;
+    console.log(email,password)
     try{
         const vendermail=await vender.findOne({email});
         if(!vendermail || !(await bcrypt.compare(password,vendermail.password))){
