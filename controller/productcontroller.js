@@ -18,6 +18,7 @@ const addproduct=async(req,res)=>{
         const {productName,Price,category,region,bestseller,description}=req.body;
         const image=req.file?req.file.filename:undefined;
         const firmid=req.params.firmid;
+        console.log(firmid)
         const firm=await Firm.findById(firmid);
         if(!firm){
             return res.status(404).json({error:'firm not found'});
@@ -46,6 +47,7 @@ const addproduct=async(req,res)=>{
 
 const getproductbyfirm=async (req,res)=>{
     const firmid=req.params.firmid;
+    
    try {
         const firm=await Firm.findById(firmid);
     if(!firm){
@@ -54,7 +56,7 @@ const getproductbyfirm=async (req,res)=>{
     }
     const firmname=firm.firmName
     const products=await Product.find({firm:firmid});
-    res.status(404).json({firmname,products,msg:'products fetched successfully'})
+    res.status(200).json({firmname,products,msg:'products fetched successfully'})
     }
     catch (error){
         res.status(501).json({

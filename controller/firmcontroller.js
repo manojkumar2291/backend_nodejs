@@ -22,6 +22,7 @@ const addfirm=async(req,res)=>{
 if(!vender){
     
     res.status(404).json({
+        
         message:'vender not found'
     })
 }
@@ -39,7 +40,11 @@ if(!vender){
 const savedfirm=await firm.save()
 vender.firm.push(savedfirm);
 await vender.save()
-return res.status(200).json({msg:'firm saved'})
+return res.status(200).json({
+    firmid:savedfirm._id,
+    firmname:savedfirm.firmName,
+    msg:'firm saved'
+})
 }
 catch(error){
 console.error(error)
