@@ -47,10 +47,7 @@ const venderlogin =async(req,res)=>{
          res.status(200).json({success:"login successful",token,venderfirmid,vendorname})
         }
         else{
-            const venderfirmid="No firm added"
-            const newuser=true
             res.status(200).json({success:"login successful",token,venderfirmid,vendorname})
-
         }
         
     }
