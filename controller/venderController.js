@@ -46,7 +46,13 @@ const venderlogin =async(req,res)=>{
          const venderfirmid=vendermail.firm[0].toString();
          res.status(200).json({success:"login successful",token,venderfirmid,vendorname})
         }
-        res.status(200).json({success:"login successful",token,vendorname}) 
+        else{
+            const venderfirmid="No firm added"
+            const newuser=true
+            res.status(200).json({success:"login successful",token,venderfirmid,vendorname})
+
+        }
+        
     }
     catch(error){
             console.log(error); 
