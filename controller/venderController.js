@@ -42,9 +42,11 @@ const venderlogin =async(req,res)=>{
         
         const token=jwt.sign({venderid: vendermail._id},key)
         const vendorname=vendermail.username;
-        const venderfirmid=vendermail.firm[0].toString();
-       
-        res.status(200).json({success:"login successful",token,venderfirmid,vendorname}) 
+        if(vendermail.firm[0]){
+         const venderfirmid=vendermail.firm[0].toString();
+         res.status(200).json({success:"login successful",token,venderfirmid,vendorname})
+        }
+        res.status(200).json({success:"login successful",token,vendorname}) 
     }
     catch(error){
             console.log(error); 
