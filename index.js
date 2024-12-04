@@ -20,7 +20,7 @@ const PORT=process.env.PORT||4000;
 dotenv.config();
 
 
-app.use(cors())
+app.use(cors(origin:'https://dashboard-eight-lime.vercel.app/'))
 app.use(bodyparser.json())
 app.use('/vender',venderRoutes);
 app.use('/firm',firmRoutes);
